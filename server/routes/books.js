@@ -51,7 +51,7 @@ router.post('/add', async(req, res, next) => {
       "Title":req.body.title,
         "Price": req.body.price,
         "Author":req.body.author,
-        "Gener":req.body.gener
+        "Genre":req.body.genre
    });
    try {
     await newBook.save();
@@ -91,7 +91,7 @@ router.post('/edit/:id', async(req, res, next) => {
         "Title":req.body.title,
         "Price": req.body.price,
         "Author":req.body.author,
-        "Gener":req.body.gener
+        "Genre":req.body.genre
     };
     try{
         await books.updateOne({_id:id}, updatedBooks);
