@@ -26,8 +26,8 @@
     "popper.js": "^1.16.1"
   },
   "engines": {
-    "node": "^10.15.0",
-    "npm": "^6.0.0"
+    "node": "^18.13.0",
+    "npm": "^9.6.6"
   },
   "description": "## Welcome to the MidTerm Project - the Favourite Book List App",
   "main": "server.js",
