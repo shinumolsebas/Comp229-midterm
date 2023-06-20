@@ -31,7 +31,9 @@ router.get('/add', async(req, res, next) => {
      * ADD CODE HERE *
      *****************/
     try{
-      res.render('books/add', {title:'Books'})
+      //res.render('content/add', {title:'Books'})
+
+      res.render('books/details', {title:'Books',  books: books})
     }catch(err){
       console.log(err);
     }
@@ -39,13 +41,27 @@ router.get('/add', async(req, res, next) => {
 });
 
 // POST process the Book Details page and create a new Book - CREATE
-router.post('/add', (req, res, next) => {
+router.post('/add', async(req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
      *****************/
+   let newBook = new book({
 
-});
+      "Title":req.body.title,
+        "Price": req.body.price,
+        "Author":req.body.author,
+        "Gener":req.body.gener
+   });
+   try {
+    await newBook.save();
+    res.redirect('/books')
+   }catch(err){
+    console.log(err);
+    res.status(500).send(err);
+   }
+
+}); 
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/edit/:id', async(req, res, next) => {
@@ -56,7 +72,7 @@ router.get('/edit/:id', async(req, res, next) => {
     let id = req.params.id;
     try{
       let booksToEdit = await books.findById(id)
-      res.render('content/edit',{title:'Edit Books', book: booksToEdit});
+      res.render('books/details',{title:'Edit Books', books: booksToEdit});
     }catch(err){
       console.log(err);
       res.status(500).send(err);

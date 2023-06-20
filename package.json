@@ -1,5 +1,5 @@
 {
-  "name": "comp229-f2020-midterm",
+  "name": "comp229-midterm-301040156",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -52,7 +52,7 @@
     "ExpressJS",
     "EJS"
   ],
-  "author": "Your Name Goes Here",
+  "author": "Shinumol Sebastian",
   "license": "ISC",
   "bugs": {
     "url": ""
